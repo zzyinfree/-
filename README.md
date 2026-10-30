@@ -11,7 +11,17 @@
 
 ## 在比赛实例中运行
 
-代码以比赛实例的 ROS Noetic、PX4、RflySim3D、FM9G4B-V 及原有环境为基础。把 `ros_src` 下的 ROS 包放入 `/home/ubuntu/catkin_ws/src/`，把 `workspace_scripts` 下的脚本放入 `/root/gpufree-data/cicc_workspace/`，在实例中编译工作区。`object_det` 引用的第三方 Ultralytics/CLIP 依赖及模型权重需在比赛环境中另行准备。
+代码以比赛实例的 ROS Noetic、PX4、RflySim3D、FM9G4B-V 及原有环境为基础。**另一台电脑须先启动同一官方 Ubuntu 比赛镜像或其完整克隆**。普通电脑只克隆此仓库无法运行仿真：RflySim3D/PX4、ROS 扩展包、`object_det` 的 Ultralytics、检测权重及约 8.5 GB 的九格模型都来自比赛镜像，不在本仓库。不要把模型、凭据或录像直接推到这个公开仓库。
+
+在新比赛实例的 root 终端执行（仓库名为 `-`，可以直接复制）：
+
+```bash
+git clone https://github.com/zzyinfree/-.git /root/cicc-source
+bash /root/cicc-source/restore_on_instance.sh --check
+bash /root/cicc-source/restore_on_instance.sh --install
+```
+
+`--check` 先报告缺少的镜像资源；`--install` 把 ROS 包和任务脚本放到比赛环境的固定目录并执行 `catkin_make`。请在启动仿真前确认脚本通过。如果新实例的官方镜像缺少模型或第三方依赖，应从合法的比赛环境来源恢复，不能通过这个源码仓库自动获取。
 
 启动仿真：
 
