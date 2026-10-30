@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Development-only return-path test: no balloon strike or score claim. -->
+<root BTCPP_format="4" main_tree_to_execute="ReturnRouteTest">
+  <BehaviorTree ID="ReturnRouteTest">
+    <Sequence name="IsolatedReturn">
+      <Takeoff goal="0.0;0.0;1.0"/>
+      <PlanningControl goal="4.0;1.0;0.73" record_breadcrumbs="true" trail_1="{balloon_trail_1}" trail_2="{balloon_trail_2}" trail_3="{balloon_trail_3}"/>
+      <GoTo goal="4.0;1.0;1.8" tolerance="0.18"/>
+      <GoTo goal="4.0;1.0;0.73" tolerance="0.18"/>
+      <GoTo goal="{balloon_trail_3}" tolerance="0.20"/>
+      <GoTo goal="{balloon_trail_2}" tolerance="0.20"/>
+      <GoTo goal="{balloon_trail_1}" tolerance="0.20"/>
+      <GoTo goal="2.3;0.7;1.8" tolerance="0.18"/>
+      <GoTo goal="0.0;0.0;1.8" tolerance="0.18"/>
+      <Land/>
+    </Sequence>
+  </BehaviorTree>
+</root>
