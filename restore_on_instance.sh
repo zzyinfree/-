@@ -69,7 +69,9 @@ done
 mkdir -p "$RUN_DIR"
 cp -a "$REPO_DIR"/workspace_scripts/. "$RUN_DIR/"
 
+set +u
 source /opt/ros/noetic/setup.bash
+set -u
 cd "$ROS_WS"
 catkin_make
 
