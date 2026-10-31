@@ -43,8 +43,8 @@ require_dir /home/ubuntu/model/FM9G4B-V
 require_file /home/ubuntu/model/prompts/mission_prompt.txt
 require_file "$ROS_WS/src/object_det/models/best.pt"
 require_dir "$ROS_WS/src/object_det/third_party/ultralytics"
-require_file "$RUN_DIR/run_ue_only.sh"
-require_file "$RUN_DIR/start_sitl_clone.sh"
+require_file "$REPO_DIR/workspace_scripts/run_ue_only.sh"
+require_file "$REPO_DIR/workspace_scripts/start_sitl_clone.sh"
 
 if (( missing )); then
   echo 'Environment is incomplete. Restore the official simulator image and model assets first.' >&2
